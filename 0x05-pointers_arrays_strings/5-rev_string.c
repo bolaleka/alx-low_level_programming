@@ -1,21 +1,23 @@
 #include "main.h"
 #include "./2-strlen.c"
-#include  "./_putchar.c"
 
 /**
  * rev_string - String reverse
  * @s: String input
- * 
+ *
  * Return: void
  */
 void rev_string(char *s)
 {
-	int len;
+	int len, i;
+	char temp;
 
 	len = _strlen(s);
-	for (; len > 0; len--)
+	for (i = 0; i < len; i++)
 	{
-		_putchar(s[len - 1]);
+		temp = s[i];
+		s[i] = s[len - 1];
+		s[len - 1] = temp;
+		len--;
 	}
-	_putchar('\n');
 }
