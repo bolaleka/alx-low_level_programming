@@ -2,7 +2,7 @@
 
 /**
  * cap_string - Capitalizes all words of a string
- * @str: input string
+ * @s: input string
  *
  * Return: string
  */
@@ -19,7 +19,8 @@ char *cap_string(char *s)
 			{
 				s[i + 1] = s[i + 1] - 32;
 			}
-		} else if ((s[i] == '.' || s[i] == '?' || s[i] == ',' ) && s[i + 1] >= 'a' && s[i] <= 'z')
+		} else if ((s[i] == '.' || s[i] == '?' || s[i] == ',') &&
+				s[i + 1] >= 'a' && s[i] <= 'z')
 		{
 			s[i + 1] = s[i + 1] - 32;
 		}
