@@ -6,24 +6,24 @@
  *
  * Return: string
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
 	int i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+		if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
 		{
-			if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
+			if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
 			{
-				str[i + 1] = str[i + 1] - 32;
+				s[i + 1] = s[i + 1] - 32;
 			}
-		} else if (str[i] == '.' && str[i + 1] >= 'a' && str[i] <= 'z')
+		} else if ((s[i] == '.' || s[i] == '?' || s[i] == ',' ) && s[i + 1] >= 'a' && s[i] <= 'z')
 		{
-			str[i + 1] = str[i + 1] - 32;
+			s[i + 1] = s[i + 1] - 32;
 		}
 		i++;
 	}
-	return (str);
+	return (s);
 }
