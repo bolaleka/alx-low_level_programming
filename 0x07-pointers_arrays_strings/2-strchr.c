@@ -12,7 +12,7 @@ char *_strchr(char *s, char c)
 {
 	int j;
 
-	j = _strlen(s);
+	j = _strlen(s) + 1;
 	while (j > 0)
 	{
 		if (*s != c)
