@@ -11,16 +11,16 @@
 char *argstostr(int ac, char **av)
 {
 	char *str;
-	int i, len;
+	unsigned int i, len;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	for (i = 0; i < ac; i++)
+	for (i = 1; i < (unsigned int)ac; i++)
 		len += _strlen(av[i]) + 1;
 	str = malloc(sizeof(char) * len);
 	if (str == NULL)
 		return (NULL);
-	for (i = 0; i < ac; i++)
+	for (i = 0; i < (unsigned int)ac; i++)
 	{
 		str = str_concat(str, av[i]);
 		str = str_concat(str, "\n");
