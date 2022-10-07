@@ -12,42 +12,25 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *s;
-	unsigned int i, j, t, p;
+	unsigned int i, j;
 
-
-	if (s1 != NULL && s2 == NULL)
-	{
-		s = malloc(sizeof(char) * _strlen(s1) + 1);
-		for (t = 0; t < _strlen(s1); t++)
-			s[t] = s1[t];
-		return (s);
-	} else if (s1 == NULL && s2 != NULL)
-	{
-		s = malloc(sizeof(char) * _strlen(s2) + 1);
-		for (p = 0; p < _strlen(s2); p++)
-			s[p] = s2[p];
-		return (s);
-	} else if (s1 == NULL && s2 == NULL)
-	{
-		s = malloc(sizeof(char) * 1);
-		s[0] = '\0';
-		return (s);
-	} else if (n < _strlen(s2))
-	{
-		s = malloc(sizeof(char) * (_strlen(s1) + n) + 1);
-		for (i = 0; i < _strlen(s1) && s1[i] != '\0'; i++)
-			s[i] = s1[i];
-		for (j = 0; j < n && s2[j] != '\0'; j++)
-			s[i + j] = s2[j];
-	}
+	if (n >= _strlen(s2))
+		s = malloc(sizeof(char) * (_strlen(s1) + _strlen(s2) + 1));
 	else
+		s = malloc(sizeof(char) * (_strlen(s1) + n + 1));
+	if (s == NULL)
+		return (NULL);
+	for (i = 0; i < _strlen(s1) && s1[i] != '\0'; i++)
+		s[i] = s1[i];
+	if (n < _strlen(s2))
 	{
-		s = malloc(sizeof(char) * (_strlen(s1) + _strlen(s2)) + 1);
-		for (i = 0; i < (_strlen(s1) + _strlen(s2)) && s1[i] != '\0'; i++)
-			s[i] = s1[i];
-		for (j = 0; j < (_strlen(s1) + _strlen(s2)); j++)
+		for (j = 0; j < n; j++)
+			s[i + j] = s2[j];
+	} else if (n >= _strlen(s2))
+	{
+		for (j = 0; j < _strlen(s2); j++)
 			s[i + j] = s2[j];
 	}
-	s[_strlen(s2) + i] = '\0';
+	s[i + j] = '\0';
 	return (s);
 }
