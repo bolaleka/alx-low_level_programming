@@ -12,7 +12,7 @@ void print_dog(struct dog *d)
 {
 	if (d == NULL)
 	{
-		printf("%c\n", '\0');
+		d = malloc(sizeof *d);
 	}
 	if (d->name == NULL)
 		printf("Name: (nil)");
