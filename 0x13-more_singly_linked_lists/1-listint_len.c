@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * linstint_len - function that returns the number of elements in data struct
+ * listint_len - function that returns the number of elements in data struct
  * @h: struct head
  *
  * Return: size_t
